@@ -23,7 +23,7 @@ class Program
     int minLength = 0;
     int answerLength = -1;
 
-    while (minLength < maxLength)
+    while (minLength <= maxLength)
     {
       int midLength = (minLength + maxLength) / 2;
       int result = GetTotalCuttingLengths(midLength);
