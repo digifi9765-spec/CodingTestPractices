@@ -5,30 +5,18 @@ public class Solution
 {
     public string solution(string[] cards1, string[] cards2, string[] goal) 
     {
-        Queue<string> cards1Queue = new Queue<string>();
-        Queue<string> cards2Queue = new Queue<string>();
+        int cards1Idx = 0;
+        int cards2Idx = 0;
         
-        for (int i = 0; i < cards1.Length; i++)
+        foreach (string curWord in goal)
         {
-            cards1Queue.Enqueue(cards1[i]);
-        }
-        
-        for (int i = 0; i < cards2.Length; i++)
-        {
-            cards2Queue.Enqueue(cards2[i]);
-        }
-        
-        for (int i = 0; i < goal.Length; i++)
-        {
-            string curWord = goal[i];
-                        
-            if (cards1Queue.Count > 0 && cards1Queue.Peek().Equals(curWord))
+            if (cards1Idx < cards1.Length && cards1[cards1Idx] == curWord)
             {
-                cards1Queue.Dequeue();
+                cards1Idx++;
             }
-            else if (cards2Queue.Count > 0 && cards2Queue.Peek().Equals(curWord))
+            else if (cards2Idx < cards2.Length && cards2[cards2Idx] == curWord)
             {
-                cards2Queue.Dequeue();
+                cards2Idx++;
             }
             else
             {
