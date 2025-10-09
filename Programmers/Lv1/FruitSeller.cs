@@ -35,9 +35,9 @@ public class Solution
                 curMinScore = int.MaxValue;
                 curCount = 0;
 
-                if (i < m - 1)
+                if (i < m)
                 {
-                  break;
+                    break;
                 }
             }
         }
