@@ -10,7 +10,7 @@ class Program
     Console.WriteLine(GetCount(n));
 
     //재귀 함수의 사용법을 좀 더 숙지할 필요가 있음.
-    //그리디 처럼 우선순위가 있는 경우가 아님... 모든 경우를 다 테스트해봐야 함...
+    //그리디 처럼 우선순위가 있는 경우가 아님... 모든 경우를 다 테스트해봐야 함.
     //점화식: counts[i] = min(counts[i-1], counts[i/2], counts[i/3], counts[i/5]) + 1
     int GetCount(int num)
     {
