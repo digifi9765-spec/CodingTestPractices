@@ -1,3 +1,6 @@
+// 찾아보니까 사실 이렇게 푸는 문제는 아니고, 그리디 알고리즘 문제라고 함... 
+// 어쩌다가 아슬아슬하게 정답 처리됨...
+
 using System;
 using System.Collections.Generic;
 
@@ -47,18 +50,22 @@ public class Solution
             int curMin = targetList[i][0];
             int curMax = targetList[i][1];
             bool needNewSystem = true;
-            
-            foreach (DefenseSystem ds in dsList)
+
+            //이거 foreach문으로 작성하면 시간 초과로 바로 틀림
+            for (int k = 0; k < dsList.Count; k++)
             {
+                var ds = dsList[k];
+                
                 if (ds.min <= curMin && curMin < ds.max)
                 {
-                    ds.min = curMin;
+                    ds.min = Math.Max(ds.min, curMin);
                     ds.max = Math.Min(ds.max, curMax);
                     needNewSystem = false;
                     break;
                 }
                 else if (curMin < ds.min && ds.min < curMax)
                 {
+                    ds.min = Math.Max(ds.min, curMin);
                     ds.max = Math.Min(ds.max, curMax);
                     needNewSystem = false;
                     break;
